@@ -124,4 +124,17 @@ module.exports = {
         res.send({bookings, userBooking})
 
     },
-}
+    uploadSingle: async (req, res) => {
+        const {_id} = req.params
+
+        const findPost = await postSchema.findOne({_id})
+
+        res.send(findPost)
+    },
+    getAll: async(req, res) => {
+        const allPosts =   await postSchema.find()
+
+        res.send(allPosts)
+    }
+
+    }
